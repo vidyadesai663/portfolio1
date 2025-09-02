@@ -1,0 +1,134 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Student Information Form</title>
+  <style>
+    body {
+      font-family: "Poppins", sans-serif;
+      background: linear-gradient(to right, #6a11cb, #2575fc);
+      margin: 0;
+      padding: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+    .container {
+      background: white;
+      padding: 25px;
+      border-radius: 16px;
+      box-shadow: 0 6px 12px rgba(0,0,0,0.2);
+      width: 400px;
+      animation: fadeIn 1s ease-in-out;
+    }
+    h2 {
+      text-align: center;
+      color: #333;
+      margin-bottom: 20px;
+    }
+    label {
+      font-weight: bold;
+      color: #444;
+    }
+    input, textarea {
+      width: 100%;
+      padding: 10px;
+      margin: 8px 0 16px;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      font-size: 14px;
+    }
+    input:focus, textarea:focus {
+      border-color: #2575fc;
+      outline: none;
+      box-shadow: 0 0 6px rgba(37,117,252,0.5);
+    }
+    button {
+      width: 100%;
+      padding: 12px;
+      background: linear-gradient(to right, #00c6ff, #0072ff);
+      color: white;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      font-size: 16px;
+      font-weight: bold;
+      transition: 0.3s;
+    }
+    button:hover {
+      background: linear-gradient(to right, #0072ff, #00c6ff);
+    }
+    .output {
+      margin-top: 20px;
+      background: #f1f9ff;
+      padding: 15px;
+      border-left: 6px solid #2575fc;
+      border-radius: 8px;
+      font-size: 14px;
+    }
+    @keyframes fadeIn {
+      from {opacity: 0; transform: translateY(-20px);}
+      to {opacity: 1; transform: translateY(0);}
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h2>📘 Student Information</h2>
+    <form id="studentForm">
+      <label>Name:</label>
+      <input type="text" id="name" placeholder="Enter your name" required>
+
+      <label>Roll Number:</label>
+      <input type="text" id="roll" placeholder="Enter roll number" required>
+
+      <label>School Name:</label>
+      <input type="text" id="school" placeholder="Enter school name" required>
+
+      <label>Subject:</label>
+      <input type="text" id="subject" placeholder="Enter subject" required>
+
+      <label>Email ID:</label>
+      <input type="email" id="email" placeholder="Enter email" required>
+
+      <label>Phone Number:</label>
+      <input type="tel" id="phone" placeholder="Enter phone number" required>
+
+      <label>Home Address:</label>
+      <textarea id="address" rows="3" placeholder="Enter home address" required></textarea>
+
+      <button type="button" onclick="showData()">Submit</button>
+    </form>
+
+    <div id="output" class="output" style="display:none;"></div>
+  </div>
+
+  <script>
+    function showData() {
+      const name = document.getElementById("name").value;
+      const roll = document.getElementById("roll").value;
+      const school = document.getElementById("school").value;
+      const subject = document.getElementById("subject").value;
+      const email = document.getElementById("email").value;
+      const phone = document.getElementById("phone").value;
+      const address = document.getElementById("address").value;
+
+      const outputDiv = document.getElementById("output");
+      outputDiv.style.display = "block";
+      outputDiv.innerHTML = `
+        <h3>✅ Submitted Details</h3>
+        <p><b>Name:</b> ${name}</p>
+        <p><b>Roll Number:</b> ${roll}</p>
+        <p><b>School:</b> ${school}</p>
+        <p><b>Subject:</b> ${subject}</p>
+        <p><b>Email:</b> ${email}</p>
+        <p><b>Phone:</b> ${phone}</p>
+        <p><b>Address:</b> ${address}</p>
+      `;
+    }
+  </script>
+</body>
+</html>
